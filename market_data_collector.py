@@ -128,12 +128,13 @@ def collect_and_process_data(months=36):
     df_targets = pd.DataFrame({
         'Next_Month_SPY': spy_returns.shift(-1),  # 下个月的SPY收益率
         'Next_Month_QQQ': qqq_returns.shift(-1),  # 下个月的QQQ收益率
-        'SPY_Return': spy_returns,  # 当月SPY收益率
-        'QQQ_Return': qqq_returns,  # 当月QQQ收益率
+        # 使用历史数据作为特征（t-1, t-2, t-3）
         'SPY_Return_Prev1M': spy_returns.shift(1),  # 上个月SPY收益率
-        'QQQ_Return_Prev1M': qqq_returns.shift(1),  # 上个月QQQ收益率
         'SPY_Return_Prev2M': spy_returns.shift(2),  # 两个月前SPY收益率
+        'SPY_Return_Prev3M': spy_returns.shift(3),  # 三个月前SPY收益率
+        'QQQ_Return_Prev1M': qqq_returns.shift(1),  # 上个月QQQ收益率
         'QQQ_Return_Prev2M': qqq_returns.shift(2),  # 两个月前QQQ收益率
+        'QQQ_Return_Prev3M': qqq_returns.shift(3),  # 三个月前QQQ收益率
     })
     
     # 合并数据框
@@ -163,9 +164,9 @@ def collect_and_process_data(months=36):
         'GDP_YOY', 'CPI_YOY', 'Unemployment_YOY', 'PMI_YOY',
         # 环比变化率
         'GDP_MOM', 'CPI_MOM', 'Unemployment_MOM', 'PMI_MOM',
-        # 股票收益率趋势
-        'SPY_Return', 'SPY_Return_Prev1M', 'SPY_Return_Prev2M',
-        'QQQ_Return', 'QQQ_Return_Prev1M', 'QQQ_Return_Prev2M',
+        # 历史股票收益率
+        'SPY_Return_Prev1M', 'SPY_Return_Prev2M', 'SPY_Return_Prev3M',
+        'QQQ_Return_Prev1M', 'QQQ_Return_Prev2M', 'QQQ_Return_Prev3M',
         # 预测目标
         'Next_Month_SPY', 'Next_Month_QQQ'
     ]
@@ -250,13 +251,13 @@ def update_data():
             print("- CPI_MOM: CPI环比变化率")
             print("- Unemployment_MOM: 失业率环比变化率")
             print("- PMI_MOM: PMI环比变化率")
-            print("\n股票收益率趋势:")
-            print("- SPY_Return: 当月SPY收益率")
+            print("\n历史股票收益率:")
             print("- SPY_Return_Prev1M: 上月SPY收益率")
             print("- SPY_Return_Prev2M: 两个月前SPY收益率")
-            print("- QQQ_Return: 当月QQQ收益率")
+            print("- SPY_Return_Prev3M: 三个月前SPY收益率")
             print("- QQQ_Return_Prev1M: 上月QQQ收益率")
             print("- QQQ_Return_Prev2M: 两个月前QQQ收益率")
+            print("- QQQ_Return_Prev3M: 三个月前QQQ收益率")
             print("\n预测目标:")
             print("- Next_Month_SPY: 下个月SPY收益率")
             print("- Next_Month_QQQ: 下个月QQQ收益率")

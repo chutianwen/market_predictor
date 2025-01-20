@@ -7,11 +7,11 @@ This report presents machine learning model predictions for SPY and QQQ returns 
 
 ### Prediction Results
 
-- **SPY Expected Return**: -0.63%
-  - Confidence Interval: -2.33% to 1.23%
+- **SPY Expected Return**: -0.86%
+  - Confidence Interval: -2.44% to 0.67%
   
-- **QQQ Expected Return**: 1.06%
-  - Confidence Interval: 0.20% to 1.33%
+- **QQQ Expected Return**: 0.81%
+  - Confidence Interval: -0.02% to 1.39%
 
 ## Prediction Methodology
 
@@ -23,30 +23,30 @@ We use a Random Forest Regression model with the following advantages:
 
 ### Model Performance Metrics
 
-- SPY Model R² Score: 0.7626
-- QQQ Model R² Score: 0.7448
+- SPY Model R² Score: 0.7246
+- QQQ Model R² Score: 0.7192
 
 ## Key Influencing Factors
 
 ![Feature Importance Analysis](feature_importance.png)
 
 ### SPY Key Factors
-|    | feature          |   importance |
-|---:|:-----------------|-------------:|
-|  0 | PMI_MOM          |    0.120928  |
-|  1 | SPY_Return       |    0.11214   |
-|  2 | Unemployment_YOY |    0.0928972 |
-|  3 | CPI_YOY          |    0.0922675 |
-|  4 | PMI_YOY          |    0.0771029 |
+|    | feature           |   importance |
+|---:|:------------------|-------------:|
+|  0 | PMI_MOM           |    0.156841  |
+|  1 | CPI_YOY           |    0.10409   |
+|  2 | QQQ_Return_Prev2M |    0.0911311 |
+|  3 | Unemployment_YOY  |    0.0889988 |
+|  4 | PMI_YOY           |    0.0730505 |
 
 ### QQQ Key Factors
 |    | feature          |   importance |
 |---:|:-----------------|-------------:|
-|  0 | Unemployment_YOY |    0.141115  |
-|  1 | SPY_Return       |    0.102201  |
-|  2 | PMI_YOY          |    0.0960992 |
-|  3 | CPI_YOY          |    0.0809597 |
-|  4 | PMI_MOM          |    0.077973  |
+|  0 | Unemployment_YOY |    0.135999  |
+|  1 | PMI_YOY          |    0.127133  |
+|  2 | PMI_MOM          |    0.0953055 |
+|  3 | CPI_YOY          |    0.0784791 |
+|  4 | PMI              |    0.068217  |
 
 ## Market Environment Analysis
 

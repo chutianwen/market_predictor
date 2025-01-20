@@ -100,7 +100,7 @@ def prepare_features(df):
     df_processed['Month_Sin'] = np.sin(2 * np.pi * df_processed['Month']/12)
     df_processed['Month_Cos'] = np.cos(2 * np.pi * df_processed['Month']/12)
     
-    # 定义特征列
+    # 定义特征列表
     feature_columns = [
         # 时间特征
         'Year',
@@ -111,15 +111,15 @@ def prepare_features(df):
         'Quarter_1', 'Quarter_2', 'Quarter_3', 'Quarter_4',
         # 周期性特征
         'Month_Sin', 'Month_Cos',
-        # 原始值
+        # 经济指标
         'GDP', 'CPI', 'Unemployment', 'PMI',
         # 同比变化率
         'GDP_YOY', 'CPI_YOY', 'Unemployment_YOY', 'PMI_YOY',
         # 环比变化率
         'GDP_MOM', 'CPI_MOM', 'Unemployment_MOM', 'PMI_MOM',
-        # 股票收益率趋势
-        'SPY_Return', 'SPY_Return_Prev1M', 'SPY_Return_Prev2M',
-        'QQQ_Return', 'QQQ_Return_Prev1M', 'QQQ_Return_Prev2M'
+        # 历史股票收益率（t-1, t-2, t-3）
+        'SPY_Return_Prev1M', 'SPY_Return_Prev2M', 'SPY_Return_Prev3M',
+        'QQQ_Return_Prev1M', 'QQQ_Return_Prev2M', 'QQQ_Return_Prev3M'
     ]
     
     # 处理缺失值
