@@ -32,9 +32,9 @@ ENV/
 *.swo
 
 # 项目特定文件
-market_data/
-market_models/
-*.csv
+# market_data/
+# market_models/
+# *.csv
 *.pkl
 
 # API密钥和敏感信息
