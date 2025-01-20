@@ -15,11 +15,27 @@
    - 训练模型并进行预测
    - 生成预测结果和模型文件
 
-3. **输出文件** (在 `market_models/` 目录)
-   - `processed_data_YYYY_MM.csv`: 处理后的训练数据
-   - `data_statistics_YYYY_MM.csv`: 数据统计信息
-   - `market_models_YYYY_MM.pkl`: 训练好的模型
-   - `prediction_results_YYYY_MM.csv`: 预测结果
+3. **报告生成** (`report_generator.py`)
+   - 自动生成月度预测报告
+   - 输出格式：Markdown和PDF
+   - 包含预测结果、模型性能、特征重要性分析等
+   - 专业的图表和表格展示
+
+## 输出文件
+
+### 数据文件 (在 `market_data/` 目录)
+- `market_data_YYYY_MM.csv`: 每月的原始数据和计算指标
+
+### 模型文件 (在 `market_models/` 目录)
+- `processed_data_YYYY_MM.csv`: 处理后的训练数据
+- `data_statistics_YYYY_MM.csv`: 数据统计信息
+- `market_models_YYYY_MM.pkl`: 训练好的模型
+- `prediction_results_YYYY_MM.csv`: 预测结果
+
+### 报告文件 (在 `market_reports/` 目录)
+- `market_prediction_report_YYYY_MM.md`: Markdown格式报告
+- `market_prediction_report_YYYY_MM.pdf`: PDF格式报告
+- `feature_importance.png`: 特征重要性可视化图表
 
 ## 特征列表
 
@@ -111,22 +127,52 @@ QQQ预期收益率: 1.85% (置信区间: 1.20% 到 2.50%)
    - 模型性能监控
    - 预测结果可视化
 
-## 使用方法
+## 依赖安装
 
-1. 安装依赖：
 ```bash
 pip install -r requirements.txt
 ```
 
-2. 设置FRED API密钥：
+## 使用方法
+
+1. 设置FRED API密钥：
    - 在 `market_data_collector.py` 中设置 `FRED_API_KEY`
 
-3. 运行数据收集：
+2. 运行数据收集：
 ```bash
 python market_data_collector.py
 ```
 
-4. 运行预测：
+3. 运行预测：
 ```bash
 python market_predictor.py
-``` 
+```
+
+4. 生成报告：
+```bash
+python report_generator.py
+```
+
+## 报告内容
+
+每月生成的预测报告包含以下内容：
+
+1. **预测概述**
+   - SPY和QQQ的预期收益率
+   - 预测置信区间
+   - 目标月份说明
+
+2. **预测方法**
+   - 模型说明
+   - 性能指标
+   - 特征重要性分析
+
+3. **市场环境**
+   - 最新经济指标
+   - 市场趋势分析
+   - 风险提示
+
+4. **可视化**
+   - 特征重要性图表
+   - 数据统计图表
+   - 专业排版和布局 
