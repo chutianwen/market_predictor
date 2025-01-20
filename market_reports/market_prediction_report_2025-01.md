@@ -3,7 +3,13 @@
 
 ## Prediction Overview
 
-This report presents machine learning model predictions for SPY and QQQ returns for the next month (2025-01).
+This report presents machine learning model predictions for monthly percentage changes of:
+- SPY (S&P 500 ETF): Jan 31, 2025 vs Dec 31, 2024
+- QQQ (NASDAQ 100 ETF): Jan 31, 2025 vs Dec 31, 2024
+
+The predictions are based on data available as of Dec 31, 2024, including:
+- Latest economic indicators (Dec 2024): GDP, CPI, Unemployment, PMI
+- Historical market returns (Oct-Dec 2024)
 
 ### Prediction Results
 
